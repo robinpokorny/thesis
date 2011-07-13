@@ -43,8 +43,11 @@
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
 %% POZOR, nezapomeňte vyplnit jméno práce a autora.
 \usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
-\hypersetup{pdftitle=Název práce}
-\hypersetup{pdfauthor=Jméno a příjmení}
+\hypersetup{
+	pdftitle={Properties of metric spaces by means of convergence},
+	pdfauthor={Robin Pokorný}
+%	, pdfkeywords={keyword1} {key2} {key3}
+}
 
 %%% Drobné úpravy stylu
 
@@ -77,6 +80,12 @@
 \lefthyphenmin=2
 \righthyphenmin=2
 
+% Definice a věty
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{define}[theorem]{Definition}	% Definice číslujeme
+%\newtheorem*{define}{Definition} 	% Definice nečíslujeme
+
+
 %%% Titulní strana práce
 
 \pagestyle{empty}
@@ -101,28 +110,28 @@ Faculty of Mathematics and Physics
 \vfill
 \vspace{5mm}
 
-{\LARGE First and last name of the author}
+{\LARGE Robin Pokorný}
 
 \vspace{15mm}
 
 % Název práce přesně podle zadání
-{\LARGE\bfseries Title of the thesis}
+{\LARGE\bfseries Properties of metric spaces by means of convergence}
 
 \vfill
 
 % Název katedry nebo ústavu, kde byla práce oficiálně zadána
 % (dle Organizační struktury MFF UK)
-Name of the department or institute
+Department of Mathematical Analysis
 
 \vfill
 
 \begin{tabular}{rl}
 
-Supervisor of the bachelor thesis: & First and last name \\
+Supervisor of the bachelor thesis: & prof. RNDr. Miroslav Hušek, DrSc. \\
 \noalign{\vspace{2mm}}
-Study programme: & programme \\
+Study programme: & Mathematics \\
 \noalign{\vspace{2mm}}
-Specialization: & specialization \\
+Specialization: & Obecná matematika \\
 \end{tabular}
 
 \vfill
@@ -143,7 +152,7 @@ Prague 2012
 \openright
 
 \noindent
-Acknowledgement.
+Acknowledgement (?).
 
 \newpage
 
@@ -179,18 +188,18 @@ Signature
 \setlength\parskip{5mm}
 
 Název práce:
-Název práce
+Vlastnosti metrických prostorů pomocí konvergence
 % přesně dle zadání
 
 Autor:
-Jméno a příjmení autora
+Robin Pokorný
 
 Katedra:  % Případně Ústav:
-Název katedry či ústavu, kde byla práce oficiálně zadána
+Katedra matematické analýzy
 % dle Organizační struktury MFF UK
 
 Vedoucí bakalářské práce:
-Jméno a příjmení s tituly, pracoviště
+prof. RNDr. Miroslav Hušek, DrSc., Katedra matematické analýzy
 % dle Organizační struktury MFF UK, případně plný název pracoviště mimo MFF UK
 
 Abstrakt:
@@ -204,17 +213,17 @@ Klíčová slova:
 \setlength\parskip{5mm}
 
 Title:
-% přesný překlad názvu práce v angličtině
+Properties of metric spaces by means of convergence
 
 Author:
-Jméno a příjmení autora
+Robin Pokorný
 
 Department:
-Název katedry či ústavu, kde byla práce oficiálně zadána
+Department of Mathematical Analysis
 % dle Organizační struktury MFF UK v angličtině
 
 Supervisor:
-Jméno a příjmení s tituly, pracoviště
+prof. RNDr. Miroslav Hušek, DrSc., Department of Mathematical Analysis
 % dle Organizační struktury MFF UK, případně plný název pracoviště
 % mimo MFF UK v angličtině
 
