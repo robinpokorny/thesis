@@ -38,11 +38,14 @@
 %% Ostatní balíčky
 \usepackage{graphicx}
 \usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
 
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
 %% POZOR, nezapomeňte vyplnit jméno práce a autora.
-\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
+\usepackage[pdftex,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
 \hypersetup{
 	pdftitle={Properties of metric spaces by means of convergence},
 	pdfauthor={Robin Pokorný}
@@ -85,6 +88,8 @@
 \newtheorem{define}[theorem]{Definition}	% Definice číslujeme
 %\newtheorem*{define}{Definition} 	% Definice nečíslujeme
 
+\newcommand{\tbd} {\emph{\color{red} TBD}}
+
 
 %%% Titulní strana práce
 
@@ -115,7 +120,7 @@ Faculty of Mathematics and Physics
 \vspace{15mm}
 
 % Název práce přesně podle zadání
-{\LARGE\bfseries Properties of metric spaces by means of convergence}
+{\LARGE\bfseries Properties of Metric Spaces by Means of Convergence}
 
 \vfill
 
@@ -131,7 +136,7 @@ Supervisor of the bachelor thesis: & prof. RNDr. Miroslav Hušek, DrSc. \\
 \noalign{\vspace{2mm}}
 Study programme: & Mathematics \\
 \noalign{\vspace{2mm}}
-Specialization: & Obecná matematika \\
+Specialization: & General Mathematics \\
 \end{tabular}
 
 \vfill
@@ -251,6 +256,7 @@ Keywords:
 \include{preface}
 \include{chap1}
 \include{chap2}
+\include{chap3}
 
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 \include{sample}
@@ -261,7 +267,7 @@ Keywords:
 \include{bibliography}
 
 %%% Tabulky v bakalářské práci, existují-li.
-\chapwithtoc{List of Tables}
+%\chapwithtoc{List of Tables}
 
 %%% Použité zkratky v bakalářské práci, existují-li, včetně jejich vysvětlení.
 \chapwithtoc{List of Abbreviations}
@@ -269,7 +275,7 @@ Keywords:
 %%% Přílohy k bakalářské práci, existují-li (různé dodatky jako výpisy programů,
 %%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
 %%% textu práce. Přílohy se číslují.
-\chapwithtoc{Attachments}
+%\chapwithtoc{Attachments}
 
 \openright
 \end{document}
