@@ -1,24 +1,66 @@
 \chapter{Role of convergence in the theory of metric spaces}
 
 \section{Sequences in metric spaces and their convergence}
-{\color{blue}
 
-We will include selected definitions and theorems, for proofs see \cite{cech66}.
+We will briefly remind selected definitions and theorems, for proofs see \cite{cech66} or \cite{copson88}.
 \begin{define}\label{def:mp}
-Let $X$ be a set. Let $\varrho: X\times X \to [0,\infty)$ be a mapping satisfying the following conditions:
+Let $X$ be a non-empty set. Let $\varrho: X\times X \to \mathbb{R};$ be a mapping satisfying the following conditions:
 \begin{enumerate}
 	\item[(M1)] For $x,y\in X: \varrho(x,y)=0 \Leftrightarrow x = y$.
 	\item[(M2)] For $x,y,z\in X: \varrho(x,z) \le \varrho(x,y) + \varrho(z,y)$.
 \end{enumerate}
 We say that $\varrho$ is a \emph{metric on $X$} and $(X,\varrho)$ is a \emph{metric space}.
 \end{define}
-Condition \emph{(M1)} is called \emph{Identity of indiscernibles} and \emph{(M2)} is called \emph{Triangle inequality}. It is an easy exercise to show that following holds:
+The number $\varrho(x,y)$ is called the \emph{distance between x and y}.Condition \emph{(M1)} is called \emph{Identity of indiscernibles} and \emph{(M2)} is called \emph{Triangle inequality}.  It is an easy exercise to show that following holds:
 \begin{enumerate}
 	\item[(M3)] For $x,y\in X: \varrho(x,y)=\varrho(y,x)$.
 \end{enumerate}
-Sometimes \emph{(M2)} is writen with $\varrho(y,z)$ instead of $\varrho(z,y)$ but then \emph{(M3)} must be added to the conditions.
-}
+Sometimes \emph{(M2)} is writen with $\varrho(y,z)$ as the last item instead of $\varrho(z,y)$ but then \emph{(M3)} must be added to the conditions.
+
+When we set $x=z$ in \emph{(M2)} it follows that $\varrho(x,y)\ge0$ for arbitrary points $x,y\in X$.
+
+\begin{define}\label{def:allprp}
+Let $(X,\varrho)$ be a metric space.
+
+\begin{enumerate}[(i)]
+	\item For $x_0\in X$ and $\varepsilon > 0$ the set $B(x_0,\varepsilon):=\{x\in X : \varrho(x_0,x)<\varepsilon\}$ is called the \emph{open ball with centre $x_0$ and radius $\varepsilon$}.
+	\item Set $A\subset X$ is called \emph{open in $(X,\varrho)$} if $\forall x\in A\ \exists \varepsilon>0: B(x,\varepsilon)\subset A$. Set $B\subset X$ is called \emph{closed in $(X,\varrho)$} if $X\setminus B$ is open.
+	\item Let $\sigma$ be a metric on $X$. We say $\varrho$ and $\sigma$ are \emph{equivalent} if the family of all sets open in $(X,\varrho)$ is the same as the family of all sets open in $(X,\sigma)$.
+	\item For a non-empty $A\subset X$ the number $\mathrm{diam}(A):=\sup_{x,y\in A}\varrho(x,y)$ is called the diameter. We define $\mathrm{diam}(\emptyset):=0$. The space $(X,\varrho)$ is called \emph{bounded} if $\mathrm{diam}(X)<\infty$, otherwise it is called \emph{unbounded}.
+	\item
+\end{enumerate}
+\end{define}
+
+
+\begin{example}
+	\tbd\ Discrete space
+\end{example}
+
 \section{Some known properties of sequences in metric spaces}
+
+\begin{define}\label{def:consq}
+Let $(X,\varrho)$ be a metric space, $\{x_n\}_{n=1}^\infty$ be a sequence in $X$. We say that \emph{$\{x_n\}_{n=1}^\infty$ converges to $x\in X$} (or $x$ is a limit of $\{x_n\}_{n=1}^\infty$) if $\lim_{n\to\infty}\varrho(x_n,x)=0$ and we will denote it as $\lim_{n\to\infty}x_n=x$ or $x_n\to x$.
+\end{define}
+
+We will sometimes leave the indexes of a sequence and thus write only $\{x_n\}$.
+
+\begin{define}\label{def:causq}
+Let $(X,\varrho)$ be a metric space, $\{x_n\}_{n=1}^\infty$ be a sequence in $X$. We say that \emph{$\{x_n\}_{n=1}^\infty$ is Cauchy} if
+\[
+	\forall \varepsilon\ \exists n_0\in \mathbb{N} \ \forall n,m \in \mathbb{N}; n,m\ge n_0:\ \varrho(x_n,x_m)<\varepsilon.
+\]
+\end{define}
+
+\begin{theorem}[Properties of convergent sequencies] \label{th:mpseq}
+Let $(X,\varrho)$ be a metric space, $\{x_n\}$ be a sequence in $X$. Then:
+\begin{enumerate}[(i)]
+	\item If $\{x_n\}\to x\in X$ and $\{x_n\}\to y\in X$ then $x=y$.
+	\item If $\{x_n\}$ is convergent then it is bounded \tbd.
+	\item Sequence $\{x_n\}_{n=1}^\infty$ converges to $x\in X$ if and only if any of its subsequences $\{x_{n_k}\}_{k=1}^\infty$ converges to $x$.
+	\item Let $\sigma$ be a metric on $X$ equivalent with $\varrho$ and $x\in X$ then $\{x_n\}\to x$ in $(X,\varrho)$ if and only if $\{x_n\}\to x$ in$(X,\sigma)$.
+\end{enumerate}
+\end{theorem} 
+
 
 \section{Historical notes}
 
