@@ -25,7 +25,7 @@
 % \setlength\headheight{0mm}
 % \let\openright=\cleardoublepage
 
-\usepackage[british]{babel}
+\usepackage[russian, czech, british]{babel}
 %% Pokud používáte csLaTeX (doporučeno):
 %\usepackage{czech}
 %% Pokud nikoliv:
@@ -40,7 +40,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{enumerate}
-\usepackage{color}
+%\usepackage{color}
 
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
@@ -48,7 +48,7 @@
 \usepackage[pdftex,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
 \hypersetup{
 	pdftitle={Properties of metric spaces by means of convergence},
-	pdfauthor={Robin Pokorný}
+	pdfauthor={Robin Pokorný <robin@medvedi.eu>}
 %	, pdfkeywords={keyword1} {key2} {key3}
 }
 
@@ -85,14 +85,23 @@
 
 % Definice a věty
 \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}	
+\theoremstyle{definition}
 \newtheorem{define}[theorem]{Definition}	% Definice číslujeme
 %\newtheorem*{define}{Definition} 	% Definice nečíslujeme
 \newtheorem{example}[theorem]{Example}	
 
 \newcommand{\tbd} {\emph{\color{red} TBD}}
+\newcommand{\fcs} {sequential\ structure}
+\newcommand{\fcss} {sequential\ structures}
+\newcommand{\uss} {uniformly\ sequential\ structure}
+
+%\newcommand{\fcs} {family\ of\ convergent\ sequences}
+%\newcommand{\fcss} {families\ of\ convergent\ sequences}
 
 
-%%% Titulní strana práce
+
+%%% Titulní strana práce (v jezyce dle zadání práce) (ano, takhle to mám špatně)
 
 \pagestyle{empty}
 \begin{center}
@@ -110,6 +119,7 @@ Faculty of Mathematics and Physics
 {\bf\Large BACHELOR THESIS}
 
 \vfill
+
 
 \centerline{\mbox{\includegraphics[width=60mm]{logo.eps}}}
 
@@ -135,10 +145,11 @@ Department of Mathematical Analysis
 
 Supervisor of the bachelor thesis: & prof. RNDr. Miroslav Hušek, DrSc. \\
 \noalign{\vspace{2mm}}
-Study programme: & Mathematics \\
+Study programme:: & Mathematics \\
 \noalign{\vspace{2mm}}
 Specialization: & General Mathematics \\
 \end{tabular}
+
 
 \vfill
 
@@ -158,7 +169,8 @@ Prague 2012
 \openright
 
 \noindent
-Acknowledgement (?).
+I would like to thank my parents and my girlfriend Lucie for their support, and the following companies for their products which made writing this thesis easier: Apple for the extraordinary Mac, Moleskine for the legendary notebook and Pilot for the reliable G-2 roller.
+%\tbd\ Acknowledgement (?).
 
 \newpage
 
@@ -179,9 +191,9 @@ on the use of this work as a school work pursuant to Section 60 paragraph 1 of t
 \vspace{10mm}
 
 \hbox{\hbox to 0.5\hsize{%
-In ........ date ............
+In Prague, date 24th May 2012
 \hss}\hbox to 0.5\hsize{%
-Signature
+\qquad\qquad\qquad Robin Pokorný
 \hss}}
 
 \vspace{20mm}
@@ -191,53 +203,59 @@ Signature
 
 \vbox to 0.5\vsize{
 \setlength\parindent{0mm}
-\setlength\parskip{5mm}
+\setlength\parskip{4.2mm}
 
+\begin{otherlanguage}{czech}
 Název práce:
 Vlastnosti metrických prostorů pomocí konvergence
 % přesně dle zadání
 
 Autor:
-Robin Pokorný
+Robin Pokorný, robin@medvedi.eu
 
 Katedra:  % Případně Ústav:
 Katedra matematické analýzy
 % dle Organizační struktury MFF UK
 
 Vedoucí bakalářské práce:
-prof. RNDr. Miroslav Hušek, DrSc., Katedra matematické analýzy
+prof. RNDr. Miroslav Hušek, DrSc., Katedra matematické analýzy, miroslav.husek@mff.cuni.cz
 % dle Organizační struktury MFF UK, případně plný název pracoviště mimo MFF UK
 
 Abstrakt:
+V této práci se zaobíráme zobecněním struktury konvergence v metrických prostorech a charakterizací některých vlastností pomocí posloupností. Na základě chování konvergentních posloupností, které společně s vybranými vlastnostmi metrických prostorů připomínáme, zavádíme dvě obecné struktury. První z nich, sekvenciální prostor, obsahuje informace o limitě posloupností, kterou uvažuje jednoznačnou. Druhá, uniformně sekvenciální prostor, zobecňuje relaci blízkosti dvou posloupností. Ukážeme, že spojitost zobrazení, topologie, kompaktnost, souvislost a separabilita se dají odvodit ze sekvenciální struktury. Dále že totální omezenost a úplnost se dají charakterizovat s využitím pojmu cauchyovské posloupnosti, kterou můžeme definovat v uniformně sekvenciálních strukturách. O~omezenosti dokážeme, že ji nelze popsat ani jednou z těchto struktur.
 % abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání bakalářské práce
 
 Klíčová slova:
+Metrický prostor, Sekvenciální struktura, Uniformně sekvenciální struktura
 % 3 až 5 klíčových slov
+\end{otherlanguage}
 
 \vss}\nobreak\vbox to 0.49\vsize{
 \setlength\parindent{0mm}
-\setlength\parskip{5mm}
+\setlength\parskip{4.2mm}
 
 Title:
 Properties of metric spaces by means of convergence
 
 Author:
-Robin Pokorný
+Robin Pokorný, robin@medvedi.eu
 
 Department:
 Department of Mathematical Analysis
 % dle Organizační struktury MFF UK v angličtině
 
 Supervisor:
-prof. RNDr. Miroslav Hušek, DrSc., Department of Mathematical Analysis
+prof. RNDr. Miroslav Hušek, DrSc., Department of Mathematical Analysis, miroslav.husek@mff.cuni.cz
 % dle Organizační struktury MFF UK, případně plný název pracoviště
 % mimo MFF UK v angličtině
 
 Abstract:
+In this thesis we deal with generalisation of the structure of convergence in metric spaces and characterisation of some properties using sequences. On basic of behaviour of convergent sequences in metric spaces which we alongside with selected properties in metric spaces remind we introduce the general structures. The first of them - sequential spaces - includes the information about the limit of a sequence which we consider to be unique. The second - uniformly sequential spaces - generalises the relation of adjacency of two sequences. We show that continuity of a mapping, topology, compactness, connectedness and separability can be induced from a sequential structure. In addition, we show total boundedness and completeness can be characterised using the term of a Cauchy sequence which we can define in a uniformly sequential structure. Boundedness is shown to be independent on both of those structures.
 % abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
 % zadání bakalářské práce
 
 Keywords:
+Metric space, Sequential structure, Uniformly sequential structure
 % 3 až 5 klíčových slov v angličtině
 
 \vss}
@@ -259,10 +277,12 @@ Keywords:
 \include{chap2}
 \include{chap3}
 
+%\include{chap4}
+
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 %\include{sample}
 
-\include{conclusion}
+%\include{conclusion}
 
 %%% Seznam použité literatury
 \include{bibliography}
@@ -271,7 +291,7 @@ Keywords:
 %\chapwithtoc{List of Tables}
 
 %%% Použité zkratky v bakalářské práci, existují-li, včetně jejich vysvětlení.
-\chapwithtoc{List of Abbreviations}
+%\chapwithtoc{List of Abbreviations}
 
 %%% Přílohy k bakalářské práci, existují-li (různé dodatky jako výpisy programů,
 %%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
@@ -280,3 +300,7 @@ Keywords:
 
 \openright
 \end{document}
+
+
+%\begin{theorem} \label{th:} \end{theorem}
+%\begin{proof}\tbd\end{proof}

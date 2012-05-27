@@ -1,17 +1,17 @@
-\chapter{Role of convergence in the theory of metric spaces}
+\chapter{Selected facts from the theory of metric spaces}
 
-\section{Sequences in metric spaces and their convergence}
+\section{Metric spaces and their properties}
 
 We will briefly remind selected definitions and theorems, for proofs see \cite{cech66} or \cite{copson88}.
 \begin{define}\label{def:mp}
-Let $X$ be a non-empty set. Let $\varrho: X\times X \to \mathbb{R};$ be a mapping satisfying the following conditions:
+Let $X$ be a non-empty set. Let $\varrho: X\times X \to \mathbb{R}$ be a mapping satisfying the following conditions:
 \begin{enumerate}
 	\item[(M1)] For $x,y\in X: \varrho(x,y)=0 \Leftrightarrow x = y$.
 	\item[(M2)] For $x,y,z\in X: \varrho(x,z) \le \varrho(x,y) + \varrho(z,y)$.
 \end{enumerate}
 We say that $\varrho$ is a \emph{metric on $X$} and $(X,\varrho)$ is a \emph{metric space}.
 \end{define}
-The number $\varrho(x,y)$ is called the \emph{distance between x and y}.Condition \emph{(M1)} is called \emph{Identity of indiscernibles} and \emph{(M2)} is called \emph{Triangle inequality}.  It is an easy exercise to show that following holds:
+The number $\varrho(x,y)$ is called the \emph{distance between x and y}. Condition \emph{(M1)} is called \emph{identity of indiscernibles} and \emph{(M2)} is called \emph{triangle inequality}.  It is an easy exercise to show that the following holds:
 \begin{enumerate}
 	\item[(M3)] For $x,y\in X: \varrho(x,y)=\varrho(y,x)$.
 \end{enumerate}
@@ -21,46 +21,152 @@ When we set $x=z$ in \emph{(M2)} it follows that $\varrho(x,y)\ge0$ for arbitrar
 
 \begin{define}\label{def:allprp}
 Let $(X,\varrho)$ be a metric space.
-
 \begin{enumerate}[(i)]
+	\item We say the \emph{distance between a point $x\in X$ and a set $A\subset X$} (denoted as $\varrho(x,A)$ or $\varrho(A,x)$) is the number
+\[
+	 \varrho(x,A) = \varrho(A,x) := \inf\{\varrho(x,y): y\in A\}.
+\]
 	\item For $x_0\in X$ and $\varepsilon > 0$ the set $B(x_0,\varepsilon):=\{x\in X : \varrho(x_0,x)<\varepsilon\}$ is called the \emph{open ball with centre $x_0$ and radius $\varepsilon$}.
 	\item Set $A\subset X$ is called \emph{open in $(X,\varrho)$} if $\forall x\in A\ \exists \varepsilon>0: B(x,\varepsilon)\subset A$. Set $B\subset X$ is called \emph{closed in $(X,\varrho)$} if $X\setminus B$ is open.
+	\item A \emph{closure of a subset $A$ in $(X, \varrho)$} (denoted as $\overline{A}$) is defined as
+\[
+	\overline{A}:= \bigcap\{F: A\subset F\subset X, F\ \mathrm{closed\ in}\ (X, \varrho)\}.
+\]
 	\item Let $\sigma$ be a metric on $X$. We say $\varrho$ and $\sigma$ are \emph{equivalent} if the family of all sets open in $(X,\varrho)$ is the same as the family of all sets open in $(X,\sigma)$.
-	\item For a non-empty $A\subset X$ the number $\mathrm{diam}(A):=\sup_{x,y\in A}\varrho(x,y)$ is called the diameter. We define $\mathrm{diam}(\emptyset):=0$. The space $(X,\varrho)$ is called \emph{bounded} if $\mathrm{diam}(X)<\infty$, otherwise it is called \emph{unbounded}.
-	\item
+	\item For a non-empty $A\subset X$ the number $\mathrm{diam}(A):=\sup_{x,y\in A}\varrho(x,y)$ is called the \emph{diameter of $A$}. We define $\mathrm{diam}(\emptyset):=0$. The space $(X,\varrho)$ is called \emph{bounded} if $\mathrm{diam}(X)<\infty$, otherwise it is called \emph{unbounded}.
+	\item The space is called \emph{totally bounded} if
+\[
+	\forall \varepsilon\ \exists N \in \mathbb{N}\ \exists x_1, \dots, x_N \in X: \bigcup_{n=1}^N B(x_n, \varepsilon) = X.
+\]
+	\item The space is called \emph{connected} if $X\ne\emptyset$ and whenever $U,V\subset X$, both $U$ and $V$ are open, $X=U\cup V$ and $U\cap V=\emptyset$ then $U=\emptyset$ or $V=\emptyset$.
+	\item The space is called \emph{separable} if there is a countable $A\subset X$ for which $\overline{A} =X$.
+	\item The space $(X,\varrho)$ is called \emph{compact} if when $X=\bigcup_{\alpha\in A} U_\alpha$, where $A$ is an arbitrary set and $U_\alpha$ are open for every $\alpha\in A$, then there exists a finite $B\subset A$ such that $X=\bigcup_{\alpha\in B} U_\alpha$.
+
 \end{enumerate}
 \end{define}
 
+A set is closed if and only if it is equal to its closure. A totally bounded space is evidently bounded.
 
-\begin{example}
-	\tbd\ Discrete space
+\begin{theorem}[Properties of closure operator] \label{th:pco}
+	The operator assigning to $A\subset X$ its closure $\overline{A}$ (called \emph{Kuratowski closure operator}) has the following properties:
+\begin{enumerate}[(i)]
+	\item $\overline{\emptyset}=\emptyset$,
+	\item $A\subset \overline{A}$,
+	\item $\forall\ B\subset X: \overline{A\cup B} = \overline{A}\cup \overline{B}$,
+	\item $\overline{(\overline{A})}=\overline{A}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Generating topology by the closure operator] \label{th:ico}
+Let $X$ be a set and let $c: A\subset X\to c(A)\subset X$ be an operator satisfiing conditions (i)-(iv) from Theorem \ref{th:pco}. Then $\{X\setminus A: A=c(A)\}$ is a topology on X.
+\end{theorem}
+
+Previous two theorems with proofs can be found in \cite[Theorem~1.1.3]{engelking89} and \cite[Proposition~1.2.7]{engelking89}, respectively.
+
+\begin{example}\label{ex:msp}
+	Let $X$ be a non-empty set, $x,y\in X$ and
+\[
+	\varrho(x,y):= \left\{ \begin{array}{ll}1, & \mathrm{if}\ x\ne y; \\ 0, & \mathrm{if}\ x=y. \end{array} \right.
+\]
+	It is evident that $(X,\varrho)$ is a metric space. It is called a \emph{metrically discrete space}.
 \end{example}
 
-\section{Some known properties of sequences in metric spaces}
+For our purposes uniformly discrete space will mean any metric space for which $\exists \varepsilon>0,\ \forall x\in X : B(x,\varepsilon)=\{x\}$ holds.
+
+\begin{define}\label{def:contf}
+	Let $(X,\varrho)$ and $(Y,\sigma)$ be two metric spaces. We say a mapping $f:X\to Y$ is \emph{continuous} if
+\[
+	\forall x\in X\ \forall \varepsilon>0\ \exists \delta>0\ \forall y\in X: \varrho(x,y)<\delta \Rightarrow \sigma(f(x), f(y))<\varepsilon.
+\]
+We say $f$ is \emph{uniformly continuous} if
+\[
+	\forall \varepsilon>0\ \exists \delta>0\ \forall x,y\in X: \varrho(x,y)<\delta \Rightarrow \sigma(f(x), f(y))<\varepsilon.
+\]
+\end{define}
+
+Clearly a uniformly continuous mapping is continuous.
+
+\begin{theorem}\label{th:contop}
+	Let $(X,\varrho)$ and $(Y,\sigma)$ be two metric spaces. Then $f:X\to Y$ is continuous if and only if preimage $f^{-1}[A]$ is open in $(X,\varrho)$ for every $A\subset Y$ open in $(Y,\sigma)$.
+\end{theorem}
+
+\section{Some properties of sequences in metric spaces}
 
 \begin{define}\label{def:consq}
 Let $(X,\varrho)$ be a metric space, $\{x_n\}_{n=1}^\infty$ be a sequence in $X$. We say that \emph{$\{x_n\}_{n=1}^\infty$ converges to $x\in X$} (or $x$ is a limit of $\{x_n\}_{n=1}^\infty$) if $\lim_{n\to\infty}\varrho(x_n,x)=0$ and we will denote it as $\lim_{n\to\infty}x_n=x$ or $x_n\to x$.
 \end{define}
 
-We will sometimes leave the indexes of a sequence and thus write only $\{x_n\}$.
-
-\begin{define}\label{def:causq}
-Let $(X,\varrho)$ be a metric space, $\{x_n\}_{n=1}^\infty$ be a sequence in $X$. We say that \emph{$\{x_n\}_{n=1}^\infty$ is Cauchy} if
-\[
-	\forall \varepsilon\ \exists n_0\in \mathbb{N} \ \forall n,m \in \mathbb{N}; n,m\ge n_0:\ \varrho(x_n,x_m)<\varepsilon.
-\]
-\end{define}
+We shall sometimes write only $\{x_n\}$ instead of $\{x_n\}_{n=1}^\infty$.
 
 \begin{theorem}[Properties of convergent sequencies] \label{th:mpseq}
 Let $(X,\varrho)$ be a metric space, $\{x_n\}$ be a sequence in $X$. Then:
 \begin{enumerate}[(i)]
-	\item If $\{x_n\}\to x\in X$ and $\{x_n\}\to y\in X$ then $x=y$.
-	\item If $\{x_n\}$ is convergent then it is bounded \tbd.
-	\item Sequence $\{x_n\}_{n=1}^\infty$ converges to $x\in X$ if and only if any of its subsequences $\{x_{n_k}\}_{k=1}^\infty$ converges to $x$.
-	\item Let $\sigma$ be a metric on $X$ equivalent with $\varrho$ and $x\in X$ then $\{x_n\}\to x$ in $(X,\varrho)$ if and only if $\{x_n\}\to x$ in$(X,\sigma)$.
+	\item If $x_n\to x\in X$ and $x_n\to y\in X$ then $x=y$.
+	\item If $\{x_n\}$ is convergent then it is bounded.
+	\item Sequence $\{x_n\}_{n=1}^\infty$ converges to $x\in X$ if and only if every its subsequence $\{x_{n_k}\}_{k=1}^\infty$ converges to $x$.
+	\item Let $\{x_n\}\not\to x$ then there exists a subsequence $\{x_{n_k}\}$ such that for none of its subsequence $\{x_{n_{k_i}}\}$ is $\{x_{n_{k_i}}\}\to x$.
+	\item Let $\sigma$ be a metric on $X$ equivalent with $\varrho$ and $x\in X$ then $\{x_n\}\to x$ in $(X,\varrho)$ if and only if $\{x_n\}\to x$ in $(X,\sigma)$.
+	\item Let $A\subset X$ then $\overline{A} = \bigcup\{x\in X:\ \exists\{x_n\}\subset A, x_n\to x\}$.
 \end{enumerate}
 \end{theorem} 
 
+\begin{define}\label{def:seqprp}
+Let $(X,\varrho)$ be a metric space.
+\begin{enumerate}[(i)]
+	\item We say that a sequence $\{x_n\}\subset X$ is \emph{Cauchy} if
+\[
+	\forall \varepsilon\ \exists n_0\in \mathbb{N} \ \forall n,m \in \mathbb{N}; n,m\ge n_0:\ \varrho(x_n,x_m)<\varepsilon.
+\]
+	\item The space is called \emph{complete} if every Cauchy sequence of points of $X$ converges to a point of $X$.
+	%\item \tbd\ pseudocompact (?)
+\end{enumerate}
+\end{define}
 
-\section{Historical notes}
+\begin{theorem}\label{th:cmpcmpltb}
+For a metric space the following are equivalent:
+\begin{enumerate}[(i)]
+	\item It is compact.
+	\item It is complete and totally bounded.
+\end{enumerate}
+\end{theorem}
+
+\begin{define}\label{def:adjmp}
+	Let $(X,\varrho)$ be a metric space. We say a sequence $\{x_n\} $ is \emph{adjacent} to a sequence $\{y_n\}$ (denoted as $\{x_n\} \sim_\varrho \{y_n\}$) if $\lim_{n\to\infty} \varrho(x_n,y_n)=0$.
+\end{define}
+
+The following theorem shows that $\sim_\varrho$ as a relation on sequences in $X$ is an equivalence.
+
+\begin{theorem}\label{th:adjquiv}
+Relation $\sim_\varrho$ is reflexive, symmetric and transitive.
+\end{theorem}
+\begin{proof}
+Let $\{x_n\}$ be a sequence in $(X,\varrho)$. For every $n\in \mathbb{N}$ we have $\varrho(x_n,x_n)=0$ so $\{x_n\} \sim_\varrho \{x_n\}$ and $\sim_\varrho$ is reflexive.
+
+Symmetry of $\sim_\varrho$ follows from \emph{(M3)}.
+
+Let now $\{x_n\} \sim_\varrho \{y_n\}$, $\{x_n\} \sim_\varrho \{z_n\}$ and $\varepsilon>0$. For every $n\in \mathbb{N}$ we have $\varrho(z_n,y_n)\le\varrho(x_n,y_n)+\varrho(x_n,z_n)$. We find $n_0,n_1\in \mathbb{N}$ such that for all $n\in \mathbb{N}, n\ge n_0$ ($n\ge n_1$) we have $\varrho(x_n,y_n)<\frac{\varepsilon}{2}$ (respectively $\varrho(x_n,z_n)<\frac{\varepsilon}{2}$). Then for all $n\in \mathbb{N}, n\ge \max\{n_0,n_1\}$ we obtain $\varrho(x_n,z_n)<\varepsilon$. That is $\lim_{n\to\infty} \varrho(z_n,y_n)=0$ and $\sim_\varrho$ is transitive.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

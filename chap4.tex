@@ -1,0 +1,54 @@
+\chapter{Odkladiště a archiv - nazařadit do finální verze} 
+
+\section{Equivalence and quotient space}
+
+\begin{define}\label{def:ekv}
+Let $\{x_n\}$ and $\{y_n\}$ be sequences. We say they are \emph{equivalent} if $\exists\, n_0, n_1 \in \mathbb{N}\ \forall n \in \mathbb{N}: x_{n_0+n}=y_{n_1+n}$. We write $\{x_n\} \sim \{y_n\}$
+\end{define}
+
+Equivalence is well defined. When $\{x_n\} \sim \{y_n\}$ clearly $\{y_n\} \sim \{x_n\}$.
+If $\{x_n\} = \{y_n\}$ which we can rewrite as $x_n = y_n\ \forall n \in \mathbb{N}$ and we set $n_0 = n_1 = 1$. Let $\{x_n\}, \{y_n\}$ and $\{z_n\}$ be sequences such that
+
+\[
+	\exists\, n_0, n_1, m_0, m_1 \in \mathbb{N}\ \forall n \in \mathbb{N}: x_{n_0+n}=y_{n_1+n},\ y_{m_0+n}=z_{m_1+n}.
+\]
+That is $\{x_n\} \sim \{y_n\}$ and $\{y_n\} \sim \{z_n\}$.  To obtain $\{x_n\} \sim \{z_n\}$ we set $k_0=n_0+m_0$ and $k_1=m_1+n_1$ and we have
+\[
+	x_{k_0+n}=x_{n_0+m_0+n}=y_{n_1+m_0+n}=z_{m_1+n_1+n}=z_{k_1+n}.
+\]
+
+
+\begin{theorem} \label{th:eqseq}
+Let $\Xi$ be a \fcs, $(\{x_n\},x), (\{y_n\},y)\in\Xi$ and $\{y_n\} \sim \{x_n\}$. Then $x=y$.
+\end{theorem} 
+\begin{proof}
+We use \emph{(C1)} twice.
+\end{proof}
+
+When we have $(\{x_n\},x_0)\in\Xi$ and an arbitrary point $x\in X$, new sequences can be defined:
+\[
+	y_1=x,\ y_{n+1}=x_n,\qquad z_n=x_{n+1},\qquad\forall n\in \mathbb{N}.
+\]
+Both of these new sequences are equivalent with $\{x_n\}$ and therefore by Theorem~\ref{th:eqseq} they have the same limit - if present in $\Xi$. The definition of \fcs\ does not say that they do converge, it would however be odd and unnatural when removing (or adding) one member (or any finite number of members) affected the convergence of the sequence.
+
+One way to solve this would be to define something like complete \fcs\ i.e. when $(\{x_n\},x)\in\Xi$ and $\{y_n\} \sim \{x_n\}$ then $(\{y_n\},x)\in\Xi$. This would nevertheless require us to write unnecessary statements like "up to equivalence". When defined so complete \fcs\ would not add any new information about properties we study.
+
+To simplify the technique and the language we will develop a quotient space. That means if there is convergent sequence with limit $x$ all its equivalent sequences with the same limit $x$ forms one point in this space. 
+
+\begin{define}\label{def:quosp}
+Let $\Xi$ be a \fcs. Let us denote by $\Xi/\!\sim$ the \emph{set of all equivalence classes of $\sim$}:
+\begin{eqnarray}
+	\Xi/\!\sim & := & \bigg\{\Big[(\{x_n\},x)\Big] : (\{x_n\},x)\in\Xi \bigg\} = \nonumber\\
+	& {}= & \bigg\{\Big\{(\{y_n\},x), \{y_n\} \sim \{x_n\}\Big\} : (\{x_n\},x)\in\Xi \bigg\}.\nonumber
+\end{eqnarray}
+\end{define}
+
+Note that we do not demand $ \{y_n\}$ to be convergent, but we handle it as it is. In the following we will write $[\{x_n\},x]$ or instead of $[(\{x_n\},x)]$ and $\Xi$ instead of $\Xi/\!\sim$.
+
+
+\begin{define}\label{def:xi0}
+Let $\Xi$ be a \fcs. We define
+\[
+	\Xi_0:=\bigg\{[\{x\},x] : x\in X\bigg\}.
+\]
+\end{define}
