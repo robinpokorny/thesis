@@ -142,8 +142,9 @@ a.zocial {
 	background-color: #249DA6;
 }
 
-.zocial.warning {
-	background: red; cursor: help;
+.zocial.defended {
+    background-color: #a4c639;
+	cursor: help;
 }
 
 .zocial.github{
