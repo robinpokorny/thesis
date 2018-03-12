@@ -1,16 +1,367 @@
 <!doctype html>
-<html lang="en">
+<html ⚡ lang="en">
 
 <head>
     <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="canonical" href="https://robinpokorny.github.io/thesis">
 
     <title>Properties of Metric Spaces by Means of Convergence</title>
     <meta name="description" content="Robin Pokorný's Bachelor thesis: Properties of Metric Spaces by Means of Convergence. Metric space, Sequential structure, Uniformly sequential structure.">
     <meta name="author" content="Robin Pokorný">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
-    <link rel="stylesheet" href="css/style.css">
+    <style amp-custom>
+        html {
+            font-size: 100%;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        html,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: sans-serif;
+            color: #222;
+        }
+        body {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        ::-moz-selection {
+            background: #fe57a1;
+            color: #fff;
+            text-shadow: none;
+        }
+        ::selection {
+            background: #fe57a1;
+            color: #fff;
+            text-shadow: none;
+        }
+
+        a {
+            color: #72aba8;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #249da6;
+        }
+        a:focus {
+            outline: thin dotted;
+        }
+        a:hover,
+        a:active {
+            outline: 0;
+        }
+        pre,
+        code,
+        kbd,
+        samp {
+            font-family: monospace, serif;
+            _font-family: 'courier new', monospace;
+            font-size: 1em;
+        }
+        pre {
+            white-space: pre;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        blockquote {
+            margin: 1em 40px;
+        }
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 2px solid #333;
+            margin: 2em 0;
+            padding: 0;
+        }
+        small {
+            font-size: 85%;
+        }
+
+        /* ===== Zocial =============================================================
+           http://zocial.smcllns.com/
+           ========================================================================== */
+
+        .zocial {
+            border: 1px solid #777;
+            border-color: rgba(0, 0, 0, 0.2);
+            border-bottom-color: #333;
+            border-bottom-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            -moz-box-shadow: inset 0 0.08em 0 rgba(255, 255, 255, 0.4),
+                inset 0 0 0.1em rgba(255, 255, 255, 0.9);
+            -webkit-box-shadow: inset 0 0.08em 0 rgba(255, 255, 255, 0.4),
+                inset 0 0 0.1em rgba(255, 255, 255, 0.9);
+            box-shadow: inset 0 0.08em 0 rgba(255, 255, 255, 0.4),
+                inset 0 0 0.1em rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            display: inline-block;
+            font: bold 100%/2.1 'Lucida Grande', Tahoma, sans-serif;
+            padding: 0 0.95em 0 0;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+
+            position: relative;
+            z-index: 100;
+
+            -moz-border-radius: 0.3em;
+            -webkit-border-radius: 0.3em;
+            border-radius: 0.3em;
+
+            margin: 6px 4px;
+            font-size: 13px;
+        }
+
+        .zocial:active {
+            outline: none; /* outline is visible on :focus */
+        }
+
+        .zocial {
+            background-image: -moz-linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05) 49%,
+                rgba(0, 0, 0, 0.05) 51%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -ms-linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05) 49%,
+                rgba(0, 0, 0, 0.05) 51%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -o-linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05) 49%,
+                rgba(0, 0, 0, 0.05) 51%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(rgba(255, 255, 255, 0.1)),
+                color-stop(49%, rgba(255, 255, 255, 0.05)),
+                color-stop(51%, rgba(0, 0, 0, 0.05)),
+                to(rgba(0, 0, 0, 0.1))
+            );
+            background-image: -webkit-linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05) 49%,
+                rgba(0, 0, 0, 0.05) 51%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05) 49%,
+                rgba(0, 0, 0, 0.05) 51%,
+                rgba(0, 0, 0, 0.1)
+            );
+        }
+
+        .zocial:hover,
+        .zocial:focus {
+            background-image: -moz-linear-gradient(
+                rgba(255, 255, 255, 0.15) 49%,
+                rgba(0, 0, 0, 0.1) 51%,
+                rgba(0, 0, 0, 0.15)
+            );
+            background-image: -ms-linear-gradient(
+                rgba(255, 255, 255, 0.15) 49%,
+                rgba(0, 0, 0, 0.1) 51%,
+                rgba(0, 0, 0, 0.15)
+            );
+            background-image: -o-linear-gradient(
+                rgba(255, 255, 255, 0.15) 49%,
+                rgba(0, 0, 0, 0.1) 51%,
+                rgba(0, 0, 0, 0.15)
+            );
+            background-image: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(rgba(255, 255, 255, 0.15)),
+                color-stop(49%, rgba(255, 255, 255, 0.15)),
+                color-stop(51%, rgba(0, 0, 0, 0.1)),
+                to(rgba(0, 0, 0, 0.15))
+            );
+            background-image: -webkit-linear-gradient(
+                rgba(255, 255, 255, 0.15) 49%,
+                rgba(0, 0, 0, 0.1) 51%,
+                rgba(0, 0, 0, 0.15)
+            );
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.15) 49%,
+                rgba(0, 0, 0, 0.1) 51%,
+                rgba(0, 0, 0, 0.15)
+            );
+        }
+
+        .zocial:active {
+            background-image: -moz-linear-gradient(
+                bottom,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0) 30%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -ms-linear-gradient(
+                bottom,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0) 30%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -o-linear-gradient(
+                bottom,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0) 30%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(rgba(255, 255, 255, 0.1)),
+                color-stop(30%, rgba(255, 255, 255, 0)),
+                color-stop(50%, transparent),
+                to(rgba(0, 0, 0, 0.1))
+            );
+            background-image: -webkit-linear-gradient(
+                bottom,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0) 30%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1)
+            );
+            background-image: linear-gradient(
+                bottom,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0) 30%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1)
+            );
+        }
+
+        .zocial.download {
+            background-color: #249da6;
+        }
+
+        .zocial {
+            padding-left: 5px;
+            width: 141px;
+            margin-left: 0;
+            margin-right: 12px;
+        }
+
+        /* ===== Primary Styles ========================================================
+           Author: Robin Pokorný
+
+           Color palette: http://www.colourlovers.com/palette/2193331/warm_waters
+           ========================================================================== */
+        body {
+            border-top: solid #72aba8 12px;
+            background-color: #f3f3f3;
+            background-color: rgba(217, 212, 173, 0.12);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: georgia, serif;
+            color: #333;
+            padding-bottom: 120px;
+        }
+
+        .main {
+            width: 80%;
+            margin: 80px 0 0 5%;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            text-transform: uppercase;
+            font-family: helvetica, arial, sans serif;
+            font-size: 10vw;
+            font-weight: 900;
+            line-height: 0.8;
+            letter-spacing: -3px;
+        }
+
+        h2 {
+            margin: 0;
+            font-weight: normal;
+            font-size: 20px;
+            font-family: gill sans, helvetica, arial, sans serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            line-height: 1.4;
+            margin-left: 4px;
+            margin-bottom: 6px;
+        }
+
+        .author {
+            margin-top: 6px;
+            margin-bottom: 0;
+        }
+
+        h2 em {
+            text-transform: none;
+        }
+
+        .first {
+            font-weight: normal;
+            font-family: gill sans, helvetica, arial, sans serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        small {
+            color: #666;
+        }
+
+        blockquote {
+            line-height: 1.5em;
+            padding: 0 0 0 1em;
+            border-left: 4px solid #72aba8;
+            margin: 0 0 0 15px;
+        }
+
+        blockquote pre {
+            font-size: 80%;
+            line-height: 100%;
+            padding: 3px 0;
+        }
+
+        @media only screen and (min-width: 800px) {
+            .main {
+                width: 580px;
+                margin: 140px 0 0 140px;
+            }
+
+            h1 {
+                font-size: 70px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +372,7 @@
             <h2 class="author"><em>by</em> <a href="https://robinpokorny.com">Robin Pokorný</a></h2>
         </div>
         <p>
-            <a href="https://github.com/robinpokorny/thesis/raw/master/thesis.pdf" class="zocial download"><img src="img/download.png" width="16" /> Download PDF</a>
+            <a href="https://github.com/robinpokorny/thesis/raw/master/thesis.pdf" class="zocial download"><amp-img src="img/download.png" width="16" height="16"></amp-img> Download PDF</a>
             <small>~500 kB - 22 pages</small>
         </p>
 
@@ -54,7 +405,7 @@
         <hr/>
         <h2>Preview</h2>
 
-        <iframe style="width: 100%" src="https://drive.google.com/file/d/1n85hgHkfnJWlppiIBszqSqAOPPZmECLQ/preview" width="500" height="600"></iframe>
+        <!--iframe style="width: 100%" src="https://drive.google.com/file/d/1n85hgHkfnJWlppiIBszqSqAOPPZmECLQ/preview" width="500" height="600"></iframe-->
 
         <hr/>
         <h2>How to cite</h2>
@@ -74,18 +425,21 @@ Charles University in Prague, Faculty of Mathematics and Physics, Department of 
 
     </div>
 
-    <script>
-    var _gaq = [['_setAccount', 'UA-639471-23'], ['_trackPageview']];
-(function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.src =
-        ('https:' == location.protocol ? '//ssl' : '//www') +
-        '.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-})(document, 'script');
-</script>
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-639471-23"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
 
 </body>
-
 </html>
